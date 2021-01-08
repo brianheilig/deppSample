@@ -12,7 +12,7 @@ namespace Inonvis.DigilentAdept
             //result = DeviceAccessManager.DmgrGetDvc(0, out DeviceAccessManager.Device device);
             bool result;
             StringBuilder sb = new StringBuilder(256);
-            result = GetDeppVersion(sb);
+            result = DeppGetVersion(sb);
             Console.WriteLine(sb.ToString());
             //result = DeviceAccessManager.DmgrOpen(out uint hif, "CmodS6");
             //result = ParallelPortInterface.DeppEnable(hif);
@@ -21,8 +21,8 @@ namespace Inonvis.DigilentAdept
             //result = DeviceAccessManager.DmgrClose(hif);
         }
 
-        [DllImport("Dll1.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool GetDeppVersion([MarshalAs(UnmanagedType.LPStr)] StringBuilder szVersion);
+        [DllImport("deppExport32.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool DeppGetVersion([MarshalAs(UnmanagedType.LPStr)] StringBuilder szVersion);
 
     }
 }

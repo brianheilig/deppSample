@@ -8,12 +8,19 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="DeviceAccessManager.cs" />
     <Compile Remove="ParallelPortInterface.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\deppExportDef\deppExport32.dll" Link="deppExport32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
