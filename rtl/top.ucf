@@ -1,0 +1,89 @@
+#FPGA_GCLK
+NET "i_clk_8mhz" LOC = "N8" | IOSTANDARD = LVCMOS33;
+NET "i_clk_8mhz" TNM_NET = "i_clk_8mhz";
+TIMESPEC "TSi_clk_8mhz" = PERIOD "i_clk_8mhz" 125.0 ns HIGH 50%;
+
+#CLK_LFC
+NET "i_clk_pps" LOC = "N7" | IOSTANDARD = LVCMOS33;
+
+#BTNs
+NET "i_btn<0>" LOC = "P8" | IOSTANDARD = LVCMOS33;
+NET "i_btn<1>" LOC = "P9" | IOSTANDARD = LVCMOS33;
+
+#LEDs
+NET "o_led<0>" LOC = "N3" | IOSTANDARD = LVCMOS33;
+NET "o_led<1>" LOC = "P3" | IOSTANDARD = LVCMOS33;
+NET "o_led<2>" LOC = "N4" | IOSTANDARD = LVCMOS33;
+NET "o_led<3>" LOC = "P4" | IOSTANDARD = LVCMOS33;
+
+# Flash
+NET "o_qspi_sck"     LOC="N13"	| IOSTANDARD = LVCMOS33;
+NET "o_qspi_cs_n"    LOC="P2"	| IOSTANDARD = LVCMOS33;
+NET "io_qspi_dat<0>" LOC="P11"	| IOSTANDARD = LVCMOS33;
+NET "io_qspi_dat<1>" LOC="N11"	| IOSTANDARD = LVCMOS33;
+NET "io_qspi_dat<2>" LOC="N10"	| IOSTANDARD = LVCMOS33;
+NET "io_qspi_dat<3>" LOC="P10"	| IOSTANDARD = LVCMOS33;
+
+#DEPP Signals
+NET "o_depp_wait"     LOC = "B6"  | IOSTANDARD = LVCMOS33;
+NET "i_depp_astb_n"   LOC = "A6"  | IOSTANDARD = LVCMOS33;
+NET "i_depp_dstb_n"   LOC = "B7"  | IOSTANDARD = LVCMOS33;
+NET "i_depp_write_n"  LOC = "A7"  | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<0>" LOC = "B9"  | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<1>" LOC = "A9"  | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<2>" LOC = "B10" | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<3>" LOC = "A10" | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<4>" LOC = "B11" | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<5>" LOC = "A11" | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<6>" LOC = "B12" | IOSTANDARD = LVCMOS33;
+NET "io_depp_data<7>" LOC = "A12" | IOSTANDARD = LVCMOS33;
+
+#GPIO
+
+NET "io_pio<1>"  LOC = "P5" | IOSTANDARD = LVCMOS33;
+NET "io_pio<2>"  LOC = "N5" | IOSTANDARD = LVCMOS33;
+NET "io_pio<3>"  LOC = "N6" | IOSTANDARD = LVCMOS33;
+NET "io_pio<4>"  LOC = "P7" | IOSTANDARD = LVCMOS33;
+NET "io_pio<5>"  LOC = "P12" | IOSTANDARD = LVCMOS33;
+NET "io_pio<6>"  LOC = "N12" | IOSTANDARD = LVCMOS33;
+NET "io_pio<7>"  LOC = "L14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<8>"  LOC = "L13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<9>"  LOC = "K14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<10>"  LOC = "K13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<11>"  LOC = "J14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<12>"  LOC = "J13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<13>"  LOC = "H14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<14>"  LOC = "H13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<15>"  LOC = "F14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<16>"  LOC = "F13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<17>"  LOC = "G14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<18>"  LOC = "G13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<19>"  LOC = "E14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<20>"  LOC = "E13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<21>"  LOC = "D14" | IOSTANDARD = LVCMOS33;
+NET "io_pio<22>"  LOC = "D13" | IOSTANDARD = LVCMOS33;
+NET "io_pio<23>"  LOC = "C13" | IOSTANDARD = LVCMOS33;
+// 24 and 25 are NC
+NET "io_pio<26>"  LOC = "A3" | IOSTANDARD = LVCMOS33;
+NET "io_pio<27>"  LOC = "B3" | IOSTANDARD = LVCMOS33;
+NET "io_pio<28>"  LOC = "A2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<29>"  LOC = "B1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<30>"  LOC = "C1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<31>"  LOC = "D1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<32>"  LOC = "D2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<33>"  LOC = "E1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<34>"  LOC = "E2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<35>"  LOC = "F1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<36>"  LOC = "F2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<37>"  LOC = "H1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<38>"  LOC = "H2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<39>"  LOC = "G1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<40>"  LOC = "G2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<41>"  LOC = "J1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<42>"  LOC = "J2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<43>"  LOC = "K1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<44>"  LOC = "K2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<45>"  LOC = "L1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<46>"  LOC = "L2" | IOSTANDARD = LVCMOS33;
+NET "io_pio<47>"  LOC = "M1" | IOSTANDARD = LVCMOS33;
+NET "io_pio<48>"  LOC = "M2" | IOSTANDARD = LVCMOS33;

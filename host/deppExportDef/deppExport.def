@@ -1,0 +1,4 @@
+LIBRARY depp
+
+EXPORTS
+	DeppGetVersion
