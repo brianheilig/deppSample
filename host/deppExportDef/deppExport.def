@@ -1,4 +1,4 @@
-LIBRARY depp
+LIBRARY deppExport
 
 EXPORTS
 	DeppGetVersion
