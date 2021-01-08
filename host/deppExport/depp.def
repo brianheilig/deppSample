@@ -1,4 +1,24 @@
-LIBRARY depp
+LIBRARY deppExport
 
 EXPORTS
+	DmgrGetVersion
+	DmgrGetLastError
+	DmgrSzFromErc
+	DmgrOpen
+	DmgrClose
+	DmgrEnumDevices
+	DmgrGetDvc
+	
 	DeppGetVersion
+	DeppGetPortCount
+	DeppGetPortProperties
+	DeppEnable
+	DeppEnableEx
+	DeppDisable
+	DeppPutReg
+	DeppGetReg
+	DeppPutRegSet
+	DeppGetRegSet
+	DeppPutRegRepeat
+	DeppGetRegRepeat
+	DeppSetTimeout

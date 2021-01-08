@@ -13,21 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DeviceAccessManager.cs" />
-    <Compile Remove="ParallelPortInterface.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\deppExportDef\deppExport32.dll" Link="deppExport32.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="depp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Dll1.dll">
+    <None Include="..\deppExport\x86\deppExport.dll" Link="deppExport.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

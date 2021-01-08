@@ -8,21 +8,18 @@ namespace Inonvis.DigilentAdept
     {
         static void Main(string[] args)
         {
-            //bool result = DeviceAccessManager.DmgrEnumDevices(out int pcdvc);
-            //result = DeviceAccessManager.DmgrGetDvc(0, out DeviceAccessManager.Device device);
             bool result;
-            StringBuilder sb = new StringBuilder(256);
-            result = DeppGetVersion(sb);
+            result = DeviceAccessManager.EnumDevices(out int pcdvc);
+            result = DeviceAccessManager.GetDevice(0, out DeviceAccessManager.Device device);
+            StringBuilder sb = new StringBuilder(1024);
+            result = DeviceAccessManager.GetVersion(sb);
+            result = ParallelPortInterface.GetVersion(sb);
             Console.WriteLine(sb.ToString());
-            //result = DeviceAccessManager.DmgrOpen(out uint hif, "CmodS6");
-            //result = ParallelPortInterface.DeppEnable(hif);
-            //result = ParallelPortInterface.DeppGetReg(hif, 5, out byte data, false);
+            result = DeviceAccessManager.Open(out uint hif, "CmodS6");
+            result = ParallelPortInterface.Enable(hif);
+            result = ParallelPortInterface.GetReg(hif, 5, out byte data, false);
 
-            //result = DeviceAccessManager.DmgrClose(hif);
+            result = DeviceAccessManager.Close(hif);
         }
-
-        [DllImport("deppExport32.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool DeppGetVersion([MarshalAs(UnmanagedType.LPStr)] StringBuilder szVersion);
-
     }
 }

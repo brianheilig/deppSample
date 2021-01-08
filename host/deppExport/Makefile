@@ -15,13 +15,13 @@ MACHINE=x86
 LIBDIR=lib\$(ADEPT_LIB)\lib64
 MACHINE=x64
 !ENDIF
-LIBS=depp.lib
+LIBS=$(LIBDIR)\depp.lib $(LIBDIR)\dmgr.lib
+OUTFILE=deppExport.dll
 
-all: $(MACHINE)\depp.dll
+all: $(MACHINE)\$(OUTFILE)
 
 "$(MACHINE)\emptyDllMain.obj": emptyDllMain.c
 	cl /Fo$@ -c $**
 
-"$(MACHINE)\depp.dll": "$(MACHINE)\emptyDllMain.obj"
-	link.exe /dll /machine:$(MACHINE) /def:$(MODULE_DEF) /out:$@ /entry:DllMain /libpath:$(LIBDIR) $** $(LIBS)
-
+"$(MACHINE)\$(OUTFILE)": "$(MACHINE)\emptyDllMain.obj" $(MODULE_DEF)
+	link.exe /dll /machine:$(MACHINE) /def:$(MODULE_DEF) /out:$@ /entry:DllMain /libpath:$(LIBDIR) "$(MACHINE)\emptyDllMain.obj" $(LIBS)
