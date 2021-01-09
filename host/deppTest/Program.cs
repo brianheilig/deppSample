@@ -6,6 +6,8 @@ namespace Inonvis.DigilentAdept
 {
     class Program
     {
+        // This program assumes the Adept System is installed which includes depp.dll and
+        // dmgr.dll. Download Adept System from https://mautic.digilentinc.com/adept-system-download
         static void Main(string[] args)
         {
             bool result;
