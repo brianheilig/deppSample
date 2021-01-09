@@ -52,7 +52,7 @@ namespace Inonvis.DigilentAdept
         /// </summary>
         /// <param name="szVersion">pointer to buffer to receive version string</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DmgrGetVersion", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrGetVersion", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetVersion([MarshalAs(UnmanagedType.LPStr)] StringBuilder szVersion);
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace Inonvis.DigilentAdept
         /// the error status for the calling thread is reset to ercNoError. 
         /// </summary>
         /// <returns>The error code of the last error to occur</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DmgrGetLastError", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrGetLastError", CallingConvention = CallingConvention.Cdecl)]
         public static extern int GetLastError();
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="szErc">buffer to receive symbolic name for the error code</param>
         /// <param name="szErcMessage">buffer to receive descriptive string for the error code</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DmgrSzFromErc", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrSzFromErc", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool StringFromErrorCode(int erc, [MarshalAs(UnmanagedType.LPStr)] StringBuilder szErc, [MarshalAs(UnmanagedType.LPStr)] StringBuilder szErcMessage);
 
         #region Open and close functions
@@ -92,7 +92,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="phif">pointer to variable to receive interface handle</param>
         /// <param name="szSel">connection string to use to open the device</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DmgrOpen", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrOpen", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Open(out uint phif, [MarshalAs(UnmanagedType.LPStr)] string szSel);
 
         /// <summary>
@@ -105,17 +105,17 @@ namespace Inonvis.DigilentAdept
         /// </summary>
         /// <param name="hif">interface handle to be closed</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DmgrClose", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrClose", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Close(uint hif);
 
         #endregion
 
         #region Enumeration functions
 
-        [DllImport("deppExport.dll", EntryPoint = "DmgrEnumDevices", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrEnumDevices", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool EnumDevices(out int pcdvc);
 
-        [DllImport("deppExport.dll", EntryPoint = "DmgrGetDvc", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("dmgr.dll", EntryPoint = "DmgrGetDvc", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetDevice(int idvc, out Device device);
 
         #endregion

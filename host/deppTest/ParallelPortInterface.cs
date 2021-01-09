@@ -35,7 +35,7 @@ namespace Inonvis.DigilentAdept
         /// </summary>
         /// <param name="szVersion">Pointer to buffer to receive version string</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppGetVersion", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppGetVersion", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetVersion([MarshalAs(UnmanagedType.LPStr)] StringBuilder szVersion);
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="hif">open interface handle on the device</param>
         /// <param name="pcprt">pointer to variable to receive count of ports</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppGetPortCount", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppGetPortCount", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetPortCount(uint hif, ref int pcprt);
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="prtReq">port number to query</param>
         /// <param name="pdprp">pointer to variable to return port property bits</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppGetPortProperties", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppGetPortProperties", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetPortProperties(uint hif, int prtReq, ref uint pdprp);
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Inonvis.DigilentAdept
         /// </summary>
         /// <param name="hif">open interface handle on the device</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppEnable", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppEnable", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Enable(uint hif);
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="hif">open interface handle on the device</param>
         /// <param name="prtReq">DEPP port number</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppEnableEx", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppEnableEx", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool EnableEx(uint hif, int prtReq);
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Inonvis.DigilentAdept
         /// </summary>
         /// <param name="hif">open interface handle on the device</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppDisable", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppDisable", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Disable(uint hif);
 
         #endregion
@@ -102,7 +102,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="bData">data byte to send to address</param>
         /// <param name="fOverlap">True if operation should be overlapped</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppPutReg", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppPutReg", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool PutReg(uint hif, byte bAddr, byte bData, bool fOverlap);
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="pbData">pointer to store data byte read</param>
         /// <param name="fOverlap">True if operation should be overlapped</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppGetReg", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppGetReg", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetReg(uint hif, byte bAddr, out byte pbData, bool fOverlap);
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="nAddrDataPairs">number of register address/data pairs in pbAddrData buffer</param>
         /// <param name="fOverlap">True if operation should be overlapped</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppPutRegSet", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppPutRegSet", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool PutRegSet(uint hif, ref byte pbAddrData, uint nAddrDataPairs, bool fOverlap);
 
         /// <summary>
@@ -153,7 +153,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="cbData">number of data bytes to read back</param>
         /// <param name="fOverlap">True if operation should be overlapped</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppGetRegSet", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppGetRegSet", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetRegSet(uint hif, ref byte pbAddr, ref byte pbData, int cbData, bool fOverlap);
 
 
@@ -169,7 +169,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="cbData">number of data bytes to stream to specified address</param>
         /// <param name="fOverlap">True if operation should be overlapped</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppPutRegRepeat", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppPutRegRepeat", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool PutRegRepeat(uint hif, byte bAddr, ref byte pbData, int cbData, bool fOverlap);
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="cbData">number of data bytes to stream from specified address</param>
         /// <param name="fOverlap">True if operation should be overlapped</param>
         /// <returns>True when successful</returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppGetRegRepeat", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppGetRegRepeat", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool GetRegRepeat(uint hif, byte bAddr, ref byte pbData, int cbData, bool fOverlap);
 
         #endregion
@@ -203,7 +203,7 @@ namespace Inonvis.DigilentAdept
         /// <param name="tnsTimeoutTry">desired value (in nanoseconds) to be used to determine a timeout</param>
         /// <param name="ptnsTimeout">pointer to return actual actual value set</param>
         /// <returns></returns>
-        [DllImport("deppExport.dll", EntryPoint = "DeppSetTimeout", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("depp.dll", EntryPoint = "DeppSetTimeout", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool SetTimeout(uint hif, int tnsTimeoutTry, ref int ptnsTimeout);
 
         #endregion

@@ -42,15 +42,6 @@ module top(
            // Programmable IO. 24 and 25 are NC
            inout [48:1] io_pio);
 
-/*   bram bram (
-     .clka(clka), // input clka
-     .ena(ena), // input ena
-     .wea(wea), // input [0 : 0] wea
-     .addra(addra), // input [7 : 0] addra
-     .dina(dina), // input [7 : 0] dina
-     .douta(douta) // output [7 : 0] douta
-   );*/
-
    initial o_depp_wait = 1'b0;
    
    wire btn_rst = i_btn[0];
@@ -65,7 +56,6 @@ module top(
    
    assign o_qspi_cs_n = 1'b1;
    assign o_qspi_sck = 1'b0;
-   //assign o_led = {i_depp_astb_n, i_depp_dstb_n, i_depp_write_n, o_depp_wait};
    assign o_led = depp_addr;
    
 /*   always @(posedge i_clk_pps or posedge btn_rst) begin
@@ -77,14 +67,6 @@ module top(
    end*/
    
    assign io_depp_data = depp_read_en ? depp_out : 8'bzzzzzzzz;
-   
-   always @(posedge i_clk_8mhz) begin
-      if (i_depp_astb_n == 1'b0 | i_depp_dstb_n == 1'b0 | i_depp_write_n == 1'b0 | i_btn[1] == 1'b1) begin
-         depp_debug <= 1'b1;
-      end else if (i_btn[0] == 1'b1) begin
-         depp_debug <= 1'b0;
-      end
-   end
    
    always @(posedge i_clk_8mhz) begin
       if (depp_busy == 1'b1) begin

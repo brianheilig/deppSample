@@ -12,10 +12,4 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\deppExport\x86\deppExport.dll" Link="deppExport.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
